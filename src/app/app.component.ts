@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-tic-tac-toe';
+  heading = 'Tic Tac Toe';
 }
