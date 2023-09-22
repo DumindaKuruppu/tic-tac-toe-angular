@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-tic-tac-toe';
-  heading = 'Tic Tac Toe';
+  title = 'angular-tic-tac-toe - root app component';
 }
