@@ -1,7 +1,7 @@
 <h2>{{ heading }}</h2>
 <div>
   <div *ngFor="let row of board; let i = index" style="display: flex; justify-content: center">
-    <div *ngFor="let cell of row; let j = index" (click)="handleClick(i, j)" class="box">
+    <div *ngFor="let cell of row; let j = index" (click)="handleClick(i, j)" class="box"> // (click) is an event listener / event binding
       {{ cell }}
     </div>
   </div>

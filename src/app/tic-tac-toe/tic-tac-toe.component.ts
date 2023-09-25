@@ -30,7 +30,7 @@ export class TicTacToeComponent implements OnInit {
 
   checkHorizontalWin(board: any[]): boolean {
     for (const row of board) {
-      const rowSet = new Set(row);
+      const rowSet = new Set(row); // Set is a collection of unique values
       if (rowSet.size === 1 && !rowSet.has(undefined)) {
         return true;
       }

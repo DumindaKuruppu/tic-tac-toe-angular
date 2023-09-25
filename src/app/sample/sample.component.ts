@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {SampleService} from "./sample.service";
 
+// Decorator/ annotation/ metadata
 @Component({
   selector: 'app-sample',
   templateUrl: './sample.component.html',
