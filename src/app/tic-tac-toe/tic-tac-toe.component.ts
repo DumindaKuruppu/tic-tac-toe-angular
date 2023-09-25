@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {tick} from "@angular/core/testing";
 
 @Component({
   selector: 'app-tic-tac-toe',
@@ -20,7 +19,7 @@ export class TicTacToeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  generateBoard(size: number): any[][] {
+  private generateBoard(size: number): any[][] {
     const board = [];
     for (let i = 0; i < size; i++) {
       board.push([...Array(size)]);
@@ -28,7 +27,7 @@ export class TicTacToeComponent implements OnInit {
     return board;
   }
 
-  checkHorizontalWin(board: any[]): boolean {
+  private checkHorizontalWin(board: any[]): boolean {
     for (const row of board) {
       const rowSet = new Set(row); // Set is a collection of unique values
       if (rowSet.size === 1 && !rowSet.has(undefined)) {
@@ -38,7 +37,7 @@ export class TicTacToeComponent implements OnInit {
     return false;
   }
 
-  rowsToColumn(board: any): any[][] {
+  private rowsToColumn(board: any): any[][] {
     const newBoard = [];
     let column = 0;
     while (column < board[0].length) {
@@ -52,7 +51,7 @@ export class TicTacToeComponent implements OnInit {
     return newBoard;
   }
 
-  diagonalToRow(board: any): any[][] {
+  private diagonalToRow(board: any): any[][] {
     const newBoard: any = [[], []];
     let increment = 0;
     let decrement = board.length - 1;
@@ -78,11 +77,7 @@ export class TicTacToeComponent implements OnInit {
     }
 
     // Diagonal Win
-    if (this.checkHorizontalWin(this.diagonalToRow(board))) {
-      return true;
-    }
-
-    return false;
+    return this.checkHorizontalWin(this.diagonalToRow(board));
   }
 
   handleClick(r: number, c: number): void {
@@ -96,6 +91,4 @@ export class TicTacToeComponent implements OnInit {
       this.currentPlayer = this.currentPlayer === "X" ? "O" : "X";
     }
   }
-
-  protected readonly tick = tick;
 }
